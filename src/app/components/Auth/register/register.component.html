@@ -1,0 +1,45 @@
+<mat-card class="card">
+    <mat-toolbar>
+        <h3>{{title}}</h3>
+    </mat-toolbar>
+    <form [formGroup]="formGroup" (ngSubmit)="saveRegister()">
+        <div class="col-md-6">
+            <mat-form-field class="example-full-width">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Email" type="email"
+                    formControlName="email" [errorStateMatcher]="matcher"
+                    required>
+                <mat-error *ngIf="email.hasError('pattern') &&
+                    !email.hasError('required')">
+                    Ingrese un Email Valido
+                </mat-error>
+                <mat-error *ngIf="email.hasError('required')">
+                    Email es <strong>requerido</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="example-full-width">
+                <mat-label>Password</mat-label>
+                <input matInput placeholder="Password" type="password"
+                    formControlName="password" [errorStateMatcher]="matcher"
+                    required>
+                <mat-error *ngIf="password.hasError('pattern') &&
+                    !password.hasError('required')">
+                    Ingrese un Contraseña Válida <br/>
+                    Mínimo 8 Caracteres <br/>
+                    1 Letra en Mayúscula <br/>
+                    1 Número <br/>
+                    1 Carácter Especial
+                </mat-error>
+                <mat-error
+                    *ngIf="password.hasError('required')">
+                    Contraseña es <strong>requerida</strong>
+                    </mat-error>
+            </mat-form-field>
+        </div>
+        <button mat-raised-button color="primary" type="submit"
+            [disabled]="!formGroup.valid">Registarse</button>
+    </form>
+    <p>Ya tienes Cuenta? <a (click)="closeDialog()"><strong>Ingresa Aquí</strong></a></p>
+</mat-card>

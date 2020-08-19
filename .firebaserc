@@ -1,0 +1,18 @@
+{
+  "targets": {
+    "sistemaregistrocsm": {
+      "hosting": {
+        "inventarioBitCoin": [
+          "sistemaregistrocsm"
+        ]
+      }
+    },
+    "inventariobitcoin-fd568": {
+      "hosting": {
+        "inventarioBitCoin": [
+          "inventariobitcoin-fd568"
+        ]
+      }
+    }
+  }
+}

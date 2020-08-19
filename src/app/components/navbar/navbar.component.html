@@ -1,0 +1,11 @@
+
+<mat-toolbar *ngIf="user$ | async as user">
+    <span *ngIf="user">{{title1}}</span>
+    <h3 [routerLink]="['/home']" *ngIf="user">{{title2}}</h3>
+    <span class="spacer" *ngIf="user"></span>
+    <!-- <h3  [routerLink]="['/home']">Login</h3> -->
+    <!-- <h3 (click)="openDialog()">{{title3}}</h3> -->
+    <h3>{{user?.email}}</h3>
+    <h3 (click)="logout()" *ngIf="user">{{title4}}</h3>
+   
+</mat-toolbar>

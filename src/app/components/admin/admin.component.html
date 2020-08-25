@@ -1,0 +1,39 @@
+
+<mat-toolbar *ngIf="user$ | async as user">
+  <h3 *ngIf="user">{{title1}}</h3>
+  <button mat-button style="color: #131615;" title="Abre el Menú"(click)="drawer.toggle()">
+   <mat-icon>menu_open</mat-icon>
+  </button>
+  <span class="spacer" *ngIf="user"></span>
+  <h3>Bienvenido al Sistema "{{user?.email}}"</h3>
+  <span class="spacer" *ngIf="user"></span>
+  <h3 title="Salir del Sistema" (click)="logout()" *ngIf="user">{{title4}}</h3>
+</mat-toolbar>
+
+<mat-drawer-container class="container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <mat-selection-list [multiple]="false">
+      <mat-nav-list>
+        <a mat-list-item routerLink="general"><h3>General</h3> </a>
+      </mat-nav-list>
+      <mat-nav-list>
+        <a mat-list-item routerLink="inventario"><h3>Calculadora</h3></a>
+      </mat-nav-list>
+      <mat-nav-list>
+        <a mat-list-item routerLink="inventario"><h3>Inventario</h3></a>
+      </mat-nav-list>
+      <mat-nav-list>
+        <a mat-list-item routerLink="inventario"><h3>Mantenimiento</h3></a>
+      </mat-nav-list>
+      <mat-nav-list>
+        <a mat-list-item routerLink="inventario"><h3>Reportes</h3></a>
+      </mat-nav-list>
+      <mat-nav-list>
+        <a mat-list-item  title="Cierra el Menú" (click)="drawer.toggle()"><h3>Salir</h3></a>
+      </mat-nav-list>
+    </mat-selection-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { RegisterComponent } from '../Auth/register/register.component';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import Swal from 'sweetalert2';
@@ -14,7 +14,7 @@ import Swal from 'sweetalert2';
 export class NavbarComponent implements OnInit {
   public title1: string = "Logo";
   public title2: string = "Inicio";
-  public title3: string = "Registrarse";
+  public title3: string = "Admin";
   public title4: string = "Salir";
   public title5: string = "Inicio";
   public user$: Observable<any> =this.authService.angularFireAuth.user;

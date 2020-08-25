@@ -1,0 +1,46 @@
+<mat-form-field class="filter">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+  </mat-form-field>
+
+  <mat-toolbar class="table mat-elevation-z8">
+    <span>My Application</span>
+  </mat-toolbar>
+
+    <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+   
+    <ng-container matColumnDef="model">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Modelo</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.model}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="hashrate">
+      <mat-header-cell *matHeaderCellDef>Hashrate</mat-header-cell>
+      <mat-cell mat-cell *matCellDef="let element"> {{element.hashrate}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="state">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Estado </mat-header-cell>
+      <mat-cell mat-cell *matCellDef="let element"> {{element.state}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Modificar">
+      <mat-header-cell *matHeaderCellDef>Modificar</mat-header-cell>
+      <mat-cell *matCellDef="let element"><mat-icon  title="Editar">editar</mat-icon> </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Eliminar">
+      <mat-header-cell *matHeaderCellDef>Eliminar</mat-header-cell>
+      <mat-cell *matCellDef="let element"><mat-icon  title="Eliminar">delete</mat-icon></mat-cell>
+  </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"> </mat-row>
+  </mat-table>
+
+  <mat-paginator class="table mat-elevation-z8"
+  [pageSize]="5"
+  [pageSizeOptions]="[5, 10, 25, 100]">
+</mat-paginator>
+  
+  

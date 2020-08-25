@@ -1,25 +1,35 @@
-<mat-card class="card">
-    <mat-toolbar>
-        <span>{{title1}}</span>
-    </mat-toolbar>
-    <form [formGroup]="formGroup" (ngSubmit)="savelogin()">
-        <div class="col-md-6">
-            <mat-form-field class="example-full-width">
-                <mat-label>Email</mat-label>
-                <input matInput placeholder="Email" type="email"
-                    formControlName="email">
-            </mat-form-field>
-        </div>
-        <div class="col-md-6">
-            <mat-form-field class="example-full-width">
-                <mat-label>Password</mat-label>
-                <input matInput placeholder="Password" type="password"
-                    formControlName="password">
-            </mat-form-field>
-        </div>
-        <button mat-raised-button color="primary" type="submit"
-            [disabled]="!formGroup.valid">Acceder</button>
-    </form>
-    <p>No tienes Cuenta? <a (click)="openDialog()"><strong>Registrate Aquí</strong></a></p>
-    <p>Se te Olvido tu Contraseña? <a (click)="openForgetPassword()"><strong>Recupera Contraseña</strong></a></p>
-</mat-card>
+<mat-grid-list cols="1" rowHeight="100vh">
+    <mat-grid-tile class="content">
+        <mat-card class="card">
+            <!-- <mat-icon class="icon_Login">supervised_user_circle</mat-icon> -->
+            <mat-card-title>
+                <span>{{title1}}</span>
+            </mat-card-title>
+            <form [formGroup]="formGroup" (ngSubmit)="savelogin()">
+                <div class="col-md-6">
+                    <mat-form-field class="example-full-width">
+                        <mat-label><mat-icon class="icon_input">face</mat-icon>Email</mat-label>
+                        <input matInput placeholder="Email" type="email" formControlName="email">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field class="example-full-width">
+                        <mat-label><mat-icon class="icon_input">vpn_key</mat-icon>Password</mat-label>
+                        <input matInput placeholder="Password" type="password" formControlName="password">
+                    </mat-form-field>
+                </div>
+                <button mat-raised-button color="primary" type="submit" [disabled]="!formGroup.valid">Acceder</button>
+            </form>
+            <p>No tienes Cuenta? 
+                <a (click)="openDialog()">
+                    <strong>Registrate Aquí</strong>
+                </a>
+            </p>
+            <p>Se te Olvido tu Contraseña? 
+                <a (click)="openForgetPassword()">
+                    <strong>Recuperar Contraseña</strong>
+                </a>
+            </p>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>

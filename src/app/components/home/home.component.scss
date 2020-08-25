@@ -1,27 +1,61 @@
 @import '~@sweetalert2/theme-material-ui/material-ui.scss';
 
+mat-grid-list {
+    background: #659999;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #f4791f, #659999);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #f4791f, #659999);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+mat-card-title {
+    text-align: center;
+}
+
+.content {
+    display: contents;
+}
+
 .card {
-    width           : 300px;
-    background-color: white;
-    margin-left     : auto;
-    margin-top      : 2rem;
-    margin-right    : 1rem;
+    width           : 270px;
+    background-color: transparent;
+    display         : grid;
+    border-radius   : 1rem;
 }
 
 .col-md-6 {
     margin-top: 1rem;
 }
 
+.mat-form-field {
+    text-align : left;
+    width      : 250px;
+    margin-left: 0.8rem;
+}
+
 button {
-    margin-top: 1rem;
+    margin-top   : 1rem;
+    margin-bottom: 2rem;
+    margin-left  : 0.8rem;
+    width        : 250px;
 }
 
 p {
-    margin-top: 1rem;
-    font-size : 12px;
+    font-size: 12px;
+    margin   : 0 0 0px;
 }
 
 a {
     color : blueviolet;
     cursor: pointer;
 }
+
+.icon_input {
+    margin-right: 0.5rem;
+}
+
+// .icon_Login {
+//     font-size  : 90px;
+//     margin-left: 8rem;
+// }

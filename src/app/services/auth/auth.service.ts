@@ -9,12 +9,16 @@ export class AuthService {
   constructor(public angularFireAuth: AngularFireAuth) { }
 
   login(email: string, password: string) {
-    const result = this.angularFireAuth.signInWithEmailAndPassword(email, password);
+    const result = this.angularFireAuth.signInWithEmailAndPassword(email, password)
     return result;
   }
+  
+  auth(user){
+  this.angularFireAuth.onAuthStateChanged(user);
+}
 
   register(email: string, password: string) {
-    const result = this.angularFireAuth.createUserWithEmailAndPassword(email, password);
+    const result = this.angularFireAuth.createUserWithEmailAndPassword(email, password)
     return result;
   }
 

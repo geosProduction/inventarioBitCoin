@@ -1,0 +1,31 @@
+.container{
+    width: 100vw;
+    height: 100vh;
+}
+
+.spacer {
+    flex: 1 1 auto;
+  }
+
+h3{
+    margin-left: 1rem;
+    margin-top: 1.5rem;
+    cursor: pointer;
+    color: white;
+}
+
+mat-icon{
+  cursor: pointer;
+  font-size: 40px;
+  margin-bottom: 1.5rem;
+  margin-left: 1rem;
+}
+
+mat-toolbar{
+  background: #F89A27;
+  align-items: center;
+}
+
+mat-drawer{
+  background:#131615b8;
+}

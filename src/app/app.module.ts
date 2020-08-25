@@ -20,16 +20,14 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
-import { AuthService } from './services/auth.service';
-
-
+import { AuthService } from './services/auth/auth.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     RegisterComponent,
-    ForgetPasswordComponent
+    ForgetPasswordComponent, 
   ],
   imports: [
     BrowserModule,
@@ -45,9 +43,11 @@ import { AuthService } from './services/auth.service';
     MatDialogModule,
     MatInputModule,
     MatCardModule
-
   ],
   providers: [AuthService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports:[
+    NavbarComponent,
+  ]
 })
 export class AppModule { }

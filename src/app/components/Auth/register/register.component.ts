@@ -3,7 +3,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { FormControl, FormGroupDirective, NgForm, Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import Swal from 'sweetalert2';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -50,7 +50,13 @@ export class RegisterComponent implements OnInit {
     if (this.formGroup.valid) {
       console.log(this.formGroup.value);
       const {email,password}=this.formGroup.value;
-      this.authService.register(email,password);
+      this.authService.register(email,password).catch(function(error) {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log("No valido",errorCode,errorMessage);
+        this.alertError();
+        this.closeDialog();
+      });
       this.alertSuccess();
       this.closeDialog();
     } else {
